@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 app.use(express.static('public')) // Récupération dynamique des assets
 app.set('view engine', 'ejs'); // Moteur de rendu de vues définitif
 app.use(apiRouter)
-app.listen(3000)
+app.listen(process.env.PORT || 3000) // Ecoute sur le port de developpement ou 3000 en local
 
 
 
