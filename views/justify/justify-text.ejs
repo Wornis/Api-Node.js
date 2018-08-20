@@ -1,0 +1,11 @@
+<% include ../layout/header %>
+
+<h1>Le texte justifié</h1>
+<h3>Bonjour, <%= account.email %>, vous pouvez encore traiter <%= account.nbMots %> mots</h3>
+
+<p><a href="/api/justify/">Retour</a></p>
+<p style="border: 1px black solid; display: inline-block;text-align: justify; padding: 25px">
+    <%- texteValue %>
+</p>
+
+<% include ../layout/footer %>

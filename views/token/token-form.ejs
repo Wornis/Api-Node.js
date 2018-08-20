@@ -1,0 +1,21 @@
+<% include ../layout/header %>
+
+<h1>Authentification</h1>
+
+<% if (locals.msgEmail) { %>
+<h3>Veuillez rentrer un email valide</h3>
+<% } %>
+<form action="/api/token/" method="post">
+    <p>
+        <label for="email">Indiquez votre email:</label>
+        <input type="email" id="email" name="email" autofocus/>
+        <input type="submit" value="Valider">
+    </p>
+</form>
+
+<h3 style="margin-top: 100px">Les comptes existants</h3>
+<% for(var i = 0; i < arrComptes.length; i++) { %>
+<p><%= arrComptes[i].email + " | " + arrComptes[i].nbMots %> mots</p>
+<% } %>
+
+<% include ../layout/footer %>

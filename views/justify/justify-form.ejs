@@ -1,0 +1,25 @@
+<% include ../layout/header %>
+
+<h1>Renseignez le texte à justifier</h1>
+<% if (locals.blank) { %>
+<h2 style="color: red">Le texte ne doit pas être vide.</h2>
+<% } %>
+
+<form id="formJustify" action="/api/justify/" method="post">
+    <label for="texte">Renseigner le texte :</label>
+    <input type="hidden" id="token" name="token">
+</form>
+<textarea id="texte" name="texte" form="formJustify"
+          rows="10" cols="100" placeholder="Entrez votre texte ici..." autofocus></textarea>
+<br/><br/>
+<p><input type="submit" form="formJustify" value="Valider"/></p>
+
+
+<script>
+    (function getTokenVal() {
+        document.getElementById('token').value =
+            document.cookie.replace('token=', '')
+    })()
+</script>
+
+<% include ../layout/footer.ejs %>

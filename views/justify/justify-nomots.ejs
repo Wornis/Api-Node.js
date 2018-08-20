@@ -1,0 +1,10 @@
+<% include ../layout/header %>
+
+<h1>Limite de mots dépassés</h1>
+<p>Vous allez dépasser votre quota de nombre de mots journalier.
+    <br/><br/>
+    Vous pouvez néanmoins encore traiter
+    <strong><%= compte.nbMots.toString() %></strong> mots.
+<p><a href="/api/justify/">Retour</a></p>
+
+<% include ../layout/footer %>
