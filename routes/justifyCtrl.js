@@ -52,21 +52,8 @@ function getAccount(strToken) {
     return findAccountByEmail(email)
 }
 
-// Fonction qui va retourner un array
-// dont chaque valeur est une ligne de 80 caractères
-function fold(input, lineSize, lineArray) {
-    lineArray = lineArray || [];
-    if (input.length <= lineSize) {
-        lineArray.push(input);
-        return lineArray;
-    }
-    lineArray.push(input.substring(0, lineSize));
-    let tail = input.substring(lineSize);
-    return fold(tail, lineSize, lineArray);
-}
-
 // Fonction qui qui va retourner la chaine de charactères traité
+// dont chaque ligne contiendra 80 caractères
 function manageText(strTexte) {
-    let arrayOfLines = fold(strTexte, 80);
-    return arrayOfLines.join('\n');
+    return strTexte.replace(/(.{80})/g, "$1\n")
 }
